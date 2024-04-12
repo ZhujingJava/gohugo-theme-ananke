@@ -1,385 +1,292 @@
-# Ananke, A theme for [Hugo](https://gohugo.io/), a framework for building websites.
+[bep]: https://github.com/bep
+[bugs]: https://github.com/gohugoio/hugo/issues?q=is%3Aopen+is%3Aissue+label%3ABug
+[contributing]: CONTRIBUTING.md
+[create a proposal]: https://github.com/gohugoio/hugo/issues/new?labels=Proposal%2C+NeedsTriage&template=feature_request.md
+[documentation repository]: https://github.com/gohugoio/hugoDocs
+[documentation]: https://gohugo.io/documentation
+[dragonfly bsd, freebsd, netbsd, and openbsd]: https://gohugo.io/installation/bsd
+[forum]: https://discourse.gohugo.io
+[friends]: https://github.com/gohugoio/hugo/graphs/contributors
+[go]: https://go.dev/
+[hugo modules]: https://gohugo.io/hugo-modules/
+[installation]: https://gohugo.io/installation
+[issue queue]: https://github.com/gohugoio/hugo/issues
+[linux]: https://gohugo.io/installation/linux
+[macos]: https://gohugo.io/installation/macos
+[prebuilt binary]: https://github.com/gohugoio/hugo/releases/latest
+[requesting help]: https://discourse.gohugo.io/t/requesting-help/9132
+[spf13]: https://github.com/spf13
+[static site generator]: https://en.wikipedia.org/wiki/Static_site_generator
+[support]: https://discourse.gohugo.io
+[themes]: https://themes.gohugo.io/
+[twitter]: https://twitter.com/gohugoio
+[website]: https://gohugo.io
+[windows]: https://gohugo.io/installation/windows
 
-The intent of this theme is to provide a solid starting place for Hugo sites with basic features and include best practices for performance, accessibility, and rapid development.
+<a href="https://gohugo.io/"><img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/static/images/hugo-logo-wide.svg?sanitize=true" alt="Hugo" width="565"></a>
 
-![screenshot](https://raw.githubusercontent.com/budparr/gohugo-theme-ananke/master/images/screenshot.png)
+A fast and flexible static site generator built with love by [bep], [spf13], and [friends] in [Go].
 
-[DEMO](https://gohugo-ananke-theme-demo.netlify.com/)
+---
 
-Features
+[![GoDoc](https://godoc.org/github.com/gohugoio/hugo?status.svg)](https://godoc.org/github.com/gohugoio/hugo)
+[![Tests on Linux, MacOS and Windows](https://github.com/gohugoio/hugo/workflows/Test/badge.svg)](https://github.com/gohugoio/hugo/actions?query=workflow%3ATest)
+[![Go Report Card](https://goreportcard.com/badge/github.com/gohugoio/hugo)](https://goreportcard.com/report/github.com/gohugoio/hugo)
 
-- Responsive
-- Accessible
-- Contact form
-- Custom Robots.txt (changes values based on environment)
-- Internal templates for meta data, google analytics, and DISQUS or COMMENTO comments
-- RSS Discovery
-- Table of Contents (must declare `toc: true` in post parameter)
-- Stackbit configuration ([Stackbit](https://www.stackbit.com))
+[Website] | [Installation] | [Documentation] | [Support] | [Contributing] | <a rel="me" href="https://fosstodon.org/@gohugoio">Mastodon</a>
 
-Also includes examples of Hugo Features or Functions:
+## Overview
 
-- Pagination (internal template)
-- Taxonomies
-- Archetypes
-- Custom shortcode
-- Related content
-- Hugo built-in menu
-- i18n
-- `with`
-- `HUGO_ENV`
-- `first`
-- `after`
-- `sort`
-- Site LanguageCode
-- `where`
-- Content Views
-- Partials
-- Template layouts (type "post" uses a special list template, single template, and a content view)
-- Tags
-- `len`
-- Conditionals
-- `ge` (greater than or equal to)
-- `.Site.Params.mainSections` to avoid hard-coding "blog," etc. [[release note](https://github.com/gohugoio/hugo/blob/66ec6305f6cb450ddf9c489854146bac02f7dca1/docs/content/meta/release-notes.md#enhancements)]
+Hugo is a [static site generator] written in [Go], optimized for speed and designed for flexibility. With its advanced templating system and fast asset pipelines, Hugo renders a complete site in seconds, often less.
 
+Due to its flexible framework, multilingual support, and powerful taxonomy system, Hugo is widely used to create:
 
-This theme uses the "Tachyons" CSS library. This will allow you to manipulate the design of the theme by changing class names in HTML without touching the original CSS files. For more information see the [Tachyons website](https://tachyons.io/).
+- Corporate, government, nonprofit, education, news, event, and project sites
+- Documentation sites
+- Image portfolios
+- Landing pages
+- Business, professional, and personal blogs
+- Resumes and CVs
 
+Use Hugo's embedded web server during development to instantly see changes to content, structure, behavior, and presentation. Then deploy the site to your host, or push changes to your Git provider for automated builds and deployment.
 
+Hugo's fast asset pipelines include:
+
+- CSS bundling &ndash; transpilation (Sass), tree shaking, minification, source maps, SRI hashing, and PostCSS integration
+- JavaScript bundling &ndash; transpilation (TypeScript, JSX), tree shaking, minification, source maps, and SRI hashing
+- Image processing &ndash; convert, resize, crop, rotate,  adjust colors, apply filters, overlay text and images, and extract EXIF data
+
+And with [Hugo Modules], you can share content, assets, data, translations, themes, templates, and configuration with other projects via public or private Git repositories.
+
+## Sponsors
+
+<p>&nbsp;</p>
+<p float="left">
+  <a href="https://www.linode.com/?utm_campaign=hugosponsor&utm_medium=banner&utm_source=hugogithub" target="_blank"><img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/assets/images/sponsors/linode-logo_standard_light_medium.png" width="200" alt="Linode"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://cloudcannon.com/hugo-cms/?utm_campaign=HugoSponsorship&utm_source=sponsor&utm_content=gohugo" target="_blank"><img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/assets/images/sponsors/cloudcannon-blue.svg" width="220" alt="CloudCannon"></a>
+<p>&nbsp;</p>
 
 ## Installation
 
-### As a Hugo Module (recommended)
+Install Hugo from a [prebuilt binary], package manager, or package repository. Please see the installation instructions for your operating system:
 
-> ⚠️ If you installed a [Hugo binary](https://gohugo.io/getting-started/installing/#binary-cross-platform), you may not have Go installed on your machine. To check if Go is installed:
-> ```
-> $ go version
-> ```
->  Go modules were considered production ready in v1.14. [Download Go](https://golang.org/dl/).
+- [macOS]
+- [Linux]
+- [Windows]
+- [DragonFly BSD, FreeBSD, NetBSD, and OpenBSD]
 
-1. From your project's root directory, initiate the hugo module system if you haven't already:
+## Build from source
 
-   ```
-   $ hugo mod init github.com/<your_user>/<your_project>
-   ```
+Hugo is available in two editions: standard and extended. With the extended edition you can:
 
-2. Add the theme's repo to your `config.toml`:
+- Encode to the WebP format when processing images. You can decode WebP images with either edition.
+- Transpile Sass to CSS using the embedded LibSass transpiler. The extended edition is not required to use the Dart Sass transpiler.
 
-   ```toml
-   theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
-   ```
+Prerequisites to build Hugo from source:
 
-### As Git Submodule
+- Standard edition: Go 1.20 or later
+- Extended edition: Go 1.20 or later, and GCC
 
-Inside the folder of your Hugo site run:
+Build the standard edition:
 
-```
-$ git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
-```
-For more information read the official [setup guide](//gohugo.io/getting-started/quick-start/) of Hugo.
-
-
-
-## Getting started
-
-After installing the theme successfully it requires a just a few more steps to get your site running.
-
-
-### The config file
-
-Take a look inside the [`exampleSite`](https://github.com/theNewDynamic/gohugo-theme-ananke/tree/master/exampleSite) folder of this theme. You'll find a file called [`config.toml`](https://github.com/theNewDynamic/gohugo-theme-ananke/blob/master/exampleSite/config.toml). To use it, copy the [`config.toml`](https://github.com/theNewDynamic/gohugo-theme-ananke/blob/master/exampleSite/config.toml) in the root folder of your Hugo site. Feel free to change the strings in this theme.
-
-You may need to delete the line: `themesDir = "../.."`
-
-
-### Add comments
-
-To enable comments, add following to your config file:
-
-- DISQUS:
-
-  ```toml
-  [services.disqus]
-    shortname = 'YOURSHORTNAME'
-  ```
-
-- COMMENTO:
-
-  ```toml
-  [params]
-    commentoEnable = true
-  ```
-
-### Change the hero background
-
-For any page or post you can add a featured image by including the local path in front matter (see content in the `exampleSite/content/_readme.md` file for examples): `featured_image: '/images/gohugo-default-sample-hero-image.jpg'`
-
-#### Featured image as Page Resources
-If user is using [Page Resources](https://gohugo.io/content-management/page-resources/), the theme will try and match the `featured_image` from with a page resource of type `image` and use its relative permalink. If no `featured_image` is set, the theme will look for a Page Resource of type `image` whose filepath incudes either `cover` or `feature`
-
-#### Other hero settings
-If you would like to hide the header text on the featured image on a page, set `omit_header_text` to `true`. See `exampleSite/content/contact.md` for an example.
-
-You don't need an image though. The default background color is black, but you can change the color, by changing the default color class in the config.toml file. Choose a background color from any on the [Tachyons](https://tachyons.io/docs/themes/skins/) library site, and preface it with "bg-"
-
-example: `background_color_class = "bg-blue"` or `background_color_class = "bg-gray"`
-
-
-
-### Activate the contact form
-
-This theme includes a shortcode for a contact form that you can add to any page (there is an example on the contact page in the exampleSite folder). One option is to use [formspree.io](//formspree.io/) as proxy to send the actual email. Each month, visitors can send you up to one thousand emails without incurring extra charges. Visit the Formspree site to get the "action" link and add it to your shortcode like this:
-
-```
-{{< form-contact action="https://formspree.io/your@email.com" >}}
+```text
+go install github.com/gohugoio/hugo@latest
 ```
 
-### Read more link
+Build the extended edition:
 
-The homepage and other areas of the site use a `read more` link on the element. You can customize the copy of this link to make it more descriptive with the parameter `read_more_copy` available as a site and front matter parameter.
-
-```
-# config.yaml
-# Globally for all pages:
-params:
-  read_more_copy: Read more about this entry
-# Just for french
-languages:
-  fr:
-    name: Français
-    weight: 2
-    params:
-       read_more_copy: En savoir plus à ce sujet
-```
-Using front matter and cascade, this can be customized for a whole section, or just for one page.
-
-```
-# content/posts/tower-bridge-london.md
-  title: The Tower Bridge of London
-  read_more_copy: Read more about this bridge
+```text
+CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
 ```
 
-### Social Follow + Share
+## Documentation
 
-The theme automatically adds "Follow" link icons to the header and footer and "Share" link icons to pages unless `disable_share` parameter is set to true either on the site level (site params) or page level (front matter). Each built-in services sports a label, an icon and a color.
+Hugo's [documentation] includes installation instructions, a quick start guide, conceptual explanations, reference information, and examples.
 
-In order to register a service to be used, user must add an `ananke_socials` parameter to its project configuration file and list them through it in the desired order. Each entry must bear a
-- name*: It matches the built-in service reference (Ex: twitter, github)
-- url*: The url of the handle's profile on the service (Ex: https://twitter.com/theNewDynamic, https://github.com/
-theNewDynamic)
-- rel: (default: `noopener`) Controls the `rel` attribute of the "follow" link. Useful for Mastodon verification which requires a `rel="me"` on the link.
-```yaml
-params:
-  ananke_socials:
-  - name: twitter
-    url: https://twitter.com/theNewDynamic
-  - name: github
-    url: https://github.com/theNewDynamic
-  - name: mastodon
-    url: https://social.example.com/@username
-    rel: me noopener
-```
+Please submit documentation issues and pull requests to the [documentation repository].
 
-If user needs to overwrite default `color` and `label` of the service, they simply need to append the following to the entry:
-- label: The displayed name of the service to be used to popuplate `[title]` attributes and read-only. (Ex: Twitter, GitHub)
-- color: Used for styling purposes. (Ex: '#1da1f2', '#6cc644')
+## Support
 
-```yaml
-params:
-  ananke_socials:
-  - name: twitter
-    url: https://twitter.com/theNewDynamic
-    label: TND Twitter
-  - name: github
-    url: https://github.com/theNewDynamic
-    label: TND GitHub Account
-    color: '#ff6800'
-```
+Please **do not use the issue queue** for questions or troubleshooting. Unless you are certain that your issue is a software defect, use the [forum].
 
-#### Limit Follow or Share
-
-If a user needs to control Share and Follow of a service, for example enabling "Share on Facebook" without having a Facebook Page to "follow", they can set `follow: false` one the registered service.
-
-```yaml
-params:
-  ananke_socials:
-  - name: facebook
-    label: Facebook
-    follow: false
-  - name: twitter
-    url: https://twitter.com/theNewDynamic
-    label: TND Twitter
-```
-
-#### Social Icons Customization
-
-On top of easily customizing the built-in services' label and color, user can overwrite their icon by adding an svg file at `/assets/ananke/socials` with a filename matching the service's name.
-For example, in order to use your own GitHub icon, simply add an svg file at `/assets/ananke/socials/github.svg`
-
-#### Built-in Services
-Here is the list of built-in services. Those marked with an `*` are also part of the "Share" module.
-
-- twitter*
-- instagram
-- youtube
-- github
-- gitlab
-- keybase
-- linkedin*
-- medium
-- mastodon
-- slack
-- stackoverflow
-- facebook*
-- rss
-
-#### Complement
-
-In order to add an unkown service (absent from the list above), you simply need to add all three settings to `ananke_socials`: name, url, label, color, and optionally add an icon file matching the `name` to the `assets/ananke/socials` directory. In the absence of an icon, the theme will print the service's label.
-
-### Content indexing
-
-If the theme is ran in [production](#production), pages will be indexed by search engines. To prevent indexing on some given pages, add `private: true` to its Front Matter.
-
-### Update font or body classes
-
-The theme is set, by default, to use a near-white background color and the "Avenir" or serif typeface. You can change these in your config file with the `body_classes` parameter, like this:
-
-```
-[params]
-  body_classes = "avenir bg-near-white"
-```
-
-which will give you a body class like this:
-
-```
-<body class="avenir bg-near-white">
-```
-
-note: The `body_classes` parameter will not change the font used in post content. To do this, you must use the `post_content_classes` parameter.
-
-You can find a list of available typefaces [here](https://github.com/tachyons-css/tachyons/blob/v4.7.0/src/_font-family.css).
-
-And a list of background colors [here](https://github.com/tachyons-css/tachyons/blob/v4.7.0/src/_skins.css#L96).
-
-
-_n.b. in future versions we will likely separate the typeface and other body classes._
-
-
-### CSS
-
-Ananke stylesheet is built with Hugo Pipes's [Asset Bundling](https://gohugo.io/hugo-pipes/bundling/#readout) alone to maximize compatibiliy. The theme simply bundles its several files into one minified and fingerprinted (in production) CSS file.
-
-Ananke uses [Tachyon.io](https://tachyons.io/) utility class library.
-
-#### Custom CSS
-
-WARNING: Pending resolution of this [discussion](https://github.com/theNewDynamic/gohugo-theme-ananke/discussions/452#discussioncomment-1865301), Custom CSS only works with Hugo Extended
-
-In order to complement the default CSS with your own, you can add custom css files to the project.
-
-1. Just add a `assets/ananke/css` directory to your project and add the file(s) in it.
-2. Register the files using the `custom_css` key in your site's parameter. The path referenced in the parameter should be relative to the `assets/ananke/css` folder.
-
-The css files will be added in their registered order to final `main.css` file.
-
-For example, if your css files are `assets/ananke/css/custom.css` and `assets/ananke/special.css` then add the following to the config file:
-
-```
-  [params]
-    custom_css = ["custom.css","special.css"]
-```
-__IMPORTANT__: Files registered through the `custom_css` array, while unlimited in number, must be of the same type (Ex: all `scss` or all `css`)
-
-__Note on retrocompatibiliy for custom css__: If the files registered through the `custom_css` setting are not found in `assets/ananke/css` the theme will expect them to live at the given path relative to the static directory and load them as <link> requests.
-
-### Show Reading Time and Word Count
-
-If you add a key of `show_reading_time` true to either the Config Params, a page or section's front matter, articles will show the reading time and word count.
-
-
-### Adding Scripts to the Page Head
-
-Some scripts need to be added within the page head. To add your own scripts to the page head, simply insert them into the `head-additions.html` partial located in the `layouts/partials` folder.
-
-
-### Logo
-
-You can replace the title of your site in the top left corner of each page with your own logo. To do that put your own logo into the `static` directory of your website, and add the `site_logo` parameter to the site params in your config file. For example:
-
-```
-[params]
-  site_logo = "img/logo.svg"
-```
-
-### Set Content Font Color
-
-You can set the font color of the main content both globally and on individual pages:
-
-Globally:
-Set the `text_color` param in the `config.toml` file.
-```
-[params]
-  text_color = "green"
-```
-
-Individual Page (prioritized over global):
-Set the `text_color` param in a page's markdown file front matter.
-
-note: The value of `text_color` must be a valid tachyons color class. A list can be found [here](https://tachyons.io/docs/themes/skins/).
-
-
-### Localize date format
-
-Dates of blog posts and single pages are rendered with the default date format commonly used in the USA and Canada. It is possible to specify a different format.
-
-```
-[params]
-  date_format = "2. January 2006"
-```
-
-With hugo 0.87.0 and above, you can also use predefined layout, like `:date_full`, and it will output localized dates or times.
-See hugo's documentation of the [`time.Format` function](https://gohugo.io/functions/dateformat/) for more details.
-
-### Using a canonical url
-
-When you want to publish content that is already published on a different site. You need to reference a canonical url of the original content.
-By defining the `canonicalUrl` in the front matter definition the canonical url is set in the headers.
-
-```
-canonicalUrl: https://mydomain.com/path-to-the-oringinal-content/
-```
-
-### Nearly finished
-
-In order to see your site in action, run Hugo's built-in local server.
-
-`$ hugo server`
-
-Now enter [`localhost:1313`](http://localhost:1313/) in the address bar of your browser.
-
-## Production
-
-To run in production (e.g. to have Google Analytics show up), run `HUGO_ENV=production` before your build command. For example:
-
-```
-HUGO_ENV=production hugo
-```
-
-Note: The above command will not work on Windows. If you are running a Windows OS, use the below command:
-
-```
-set HUGO_ENV=production
-hugo
-```
+Hugo’s [forum] is an active community of users and developers who answer questions, share knowledge, and provide examples. A quick search of over 20,000 topics will often answer your question. Please be sure to read about [requesting help] before asking your first question.
 
 ## Contributing
 
-If you find a bug or have an idea for a feature, feel free to use the [issue tracker](https://github.com/theNewDynamic/gohugo-theme-ananke/issues) to let me know.
+You can contribute to the Hugo project by:
 
+- Answering questions on the [forum]
+- Improving the [documentation]
+- Monitoring the [issue queue]
+- Creating or improving [themes]
+- Squashing [bugs]
 
+Please submit documentation issues and pull requests to the [documentation repository].
 
+If you have an idea for an enhancement or new feature, create a new topic on the [forum] in the "Feature" category. This will help you to:
 
-TODO:
+- Determine if the capability already exists
+- Measure interest
+- Refine the concept
 
-- fix hard-coded link to [section](https://github.com/theNewDynamic/gohugo-theme-ananke/blob/master/layouts/index.html#L32)
+If there is sufficient interest, [create a proposal]. Do not submit a pull request until the project lead accepts the proposal.
+
+For a complete guide to contributing to Hugo, see the [Contribution Guide](CONTRIBUTING.md).
+
+## Dependencies
+
+Hugo stands on the shoulders of great open source libraries. Run `hugo env --logLevel info` to display a list of dependencies.
+
+<details>
+<summary>See current dependencies</summary>
+
+```text
+cloud.google.com/go/compute/metadata="v0.2.3"
+cloud.google.com/go/iam="v1.1.3"
+cloud.google.com/go/storage="v1.31.0"
+cloud.google.com/go="v0.110.8"
+github.com/Azure/azure-sdk-for-go/sdk/azcore="v1.7.0"
+github.com/Azure/azure-sdk-for-go/sdk/azidentity="v1.3.0"
+github.com/Azure/azure-sdk-for-go/sdk/internal="v1.3.0"
+github.com/Azure/azure-sdk-for-go/sdk/storage/azblob="v1.1.0"
+github.com/Azure/go-autorest/autorest/to="v0.4.0"
+github.com/AzureAD/microsoft-authentication-library-for-go="v1.0.0"
+github.com/BurntSushi/locker="v0.0.0-20171006230638-a6e239ea1c69"
+github.com/PuerkitoBio/purell="v1.1.1"
+github.com/PuerkitoBio/urlesc="v0.0.0-20170810143723-de5bf2ad4578"
+github.com/alecthomas/chroma/v2="v2.11.1"
+github.com/armon/go-radix="v1.0.0"
+github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream="v1.4.11"
+github.com/aws/aws-sdk-go-v2/config="v1.18.32"
+github.com/aws/aws-sdk-go-v2/credentials="v1.13.31"
+github.com/aws/aws-sdk-go-v2/feature/ec2/imds="v1.13.7"
+github.com/aws/aws-sdk-go-v2/feature/s3/manager="v1.11.76"
+github.com/aws/aws-sdk-go-v2/internal/configsources="v1.1.37"
+github.com/aws/aws-sdk-go-v2/internal/endpoints/v2="v2.4.31"
+github.com/aws/aws-sdk-go-v2/internal/ini="v1.3.38"
+github.com/aws/aws-sdk-go-v2/internal/v4a="v1.1.0"
+github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding="v1.9.12"
+github.com/aws/aws-sdk-go-v2/service/internal/checksum="v1.1.32"
+github.com/aws/aws-sdk-go-v2/service/internal/presigned-url="v1.9.31"
+github.com/aws/aws-sdk-go-v2/service/internal/s3shared="v1.15.0"
+github.com/aws/aws-sdk-go-v2/service/s3="v1.38.1"
+github.com/aws/aws-sdk-go-v2/service/sso="v1.13.1"
+github.com/aws/aws-sdk-go-v2/service/ssooidc="v1.15.1"
+github.com/aws/aws-sdk-go-v2/service/sts="v1.21.1"
+github.com/aws/aws-sdk-go-v2="v1.20.0"
+github.com/aws/aws-sdk-go="v1.48.2"
+github.com/aws/smithy-go="v1.14.0"
+github.com/bep/clocks="v0.5.0"
+github.com/bep/debounce="v1.2.0"
+github.com/bep/gitmap="v1.1.2"
+github.com/bep/goat="v0.5.0"
+github.com/bep/godartsass/v2="v2.0.0"
+github.com/bep/godartsass="v1.2.0"
+github.com/bep/golibsass="v1.1.1"
+github.com/bep/gowebp="v0.3.0"
+github.com/bep/lazycache="v0.2.0"
+github.com/bep/logg="v0.3.0"
+github.com/bep/mclib="v1.20400.20402"
+github.com/bep/overlayfs="v0.6.0"
+github.com/bep/simplecobra="v0.3.2"
+github.com/bep/tmc="v0.5.1"
+github.com/clbanning/mxj/v2="v2.7.0"
+github.com/cli/safeexec="v1.0.1"
+github.com/cpuguy83/go-md2man/v2="v2.0.2"
+github.com/disintegration/gift="v1.2.1"
+github.com/dlclark/regexp2="v1.10.0"
+github.com/dustin/go-humanize="v1.0.1"
+github.com/evanw/esbuild="v0.19.7"
+github.com/fatih/color="v1.16.0"
+github.com/frankban/quicktest="v1.14.6"
+github.com/fsnotify/fsnotify="v1.7.0"
+github.com/getkin/kin-openapi="v0.120.0"
+github.com/ghodss/yaml="v1.0.0"
+github.com/go-openapi/jsonpointer="v0.19.6"
+github.com/go-openapi/swag="v0.22.4"
+github.com/gobuffalo/flect="v1.0.2"
+github.com/gobwas/glob="v0.2.3"
+github.com/gohugoio/go-i18n/v2="v2.1.3-0.20230805085216-e63c13218d0e"
+github.com/gohugoio/locales="v0.14.0"
+github.com/gohugoio/localescompressed="v1.0.1"
+github.com/golang-jwt/jwt/v4="v4.5.0"
+github.com/golang/groupcache="v0.0.0-20210331224755-41bb18bfe9da"
+github.com/golang/protobuf="v1.5.3"
+github.com/google/go-cmp="v0.6.0"
+github.com/google/s2a-go="v0.1.7"
+github.com/google/uuid="v1.4.0"
+github.com/google/wire="v0.5.0"
+github.com/googleapis/enterprise-certificate-proxy="v0.3.2"
+github.com/googleapis/gax-go/v2="v2.12.0"
+github.com/gorilla/websocket="v1.5.1"
+github.com/hairyhenderson/go-codeowners="v0.4.0"
+github.com/hashicorp/golang-lru/v2="v2.0.1"
+github.com/invopop/yaml="v0.2.0"
+github.com/jdkato/prose="v1.2.1"
+github.com/jmespath/go-jmespath="v0.4.0"
+github.com/josharian/intern="v1.0.0"
+github.com/kr/pretty="v0.3.1"
+github.com/kr/text="v0.2.0"
+github.com/kylelemons/godebug="v1.1.0"
+github.com/kyokomi/emoji/v2="v2.2.12"
+github.com/mailru/easyjson="v0.7.7"
+github.com/marekm4/color-extractor="v1.2.1"
+github.com/mattn/go-colorable="v0.1.13"
+github.com/mattn/go-isatty="v0.0.20"
+github.com/mattn/go-runewidth="v0.0.9"
+github.com/mitchellh/hashstructure="v1.1.0"
+github.com/mitchellh/mapstructure="v1.5.0"
+github.com/mohae/deepcopy="v0.0.0-20170929034955-c48cc78d4826"
+github.com/muesli/smartcrop="v0.3.0"
+github.com/niklasfasching/go-org="v1.7.0"
+github.com/olekukonko/tablewriter="v0.0.5"
+github.com/pelletier/go-toml/v2="v2.1.0"
+github.com/perimeterx/marshmallow="v1.1.5"
+github.com/pkg/browser="v0.0.0-20210911075715-681adbf594b8"
+github.com/pkg/errors="v0.9.1"
+github.com/rogpeppe/go-internal="v1.11.0"
+github.com/russross/blackfriday/v2="v2.1.0"
+github.com/rwcarlsen/goexif="v0.0.0-20190401172101-9e8deecbddbd"
+github.com/sanity-io/litter="v1.5.5"
+github.com/sass/dart-sass/compiler="1.63.2"
+github.com/sass/dart-sass/implementation="1.63.2"
+github.com/sass/dart-sass/protocol="2.0.0"
+github.com/sass/libsass="3.6.5"
+github.com/spf13/afero="v1.10.0"
+github.com/spf13/cast="v1.5.1"
+github.com/spf13/cobra="v1.7.0"
+github.com/spf13/fsync="v0.9.0"
+github.com/spf13/pflag="v1.0.5"
+github.com/tdewolff/minify/v2="v2.20.7"
+github.com/tdewolff/parse/v2="v2.7.5"
+github.com/webmproject/libwebp="v1.3.2"
+github.com/yuin/goldmark-emoji="v1.0.2"
+github.com/yuin/goldmark="v1.6.0"
+go.opencensus.io="v0.24.0"
+go.uber.org/atomic="v1.11.0"
+go.uber.org/automaxprocs="v1.5.3"
+gocloud.dev="v0.34.0"
+golang.org/x/crypto="v0.15.0"
+golang.org/x/exp="v0.0.0-20221031165847-c99f073a8326"
+golang.org/x/image="v0.13.0"
+golang.org/x/mod="v0.14.0"
+golang.org/x/net="v0.18.0"
+golang.org/x/oauth2="v0.13.0"
+golang.org/x/sync="v0.5.0"
+golang.org/x/sys="v0.14.0"
+golang.org/x/text="v0.14.0"
+golang.org/x/time="v0.3.0"
+golang.org/x/tools="v0.15.0"
+golang.org/x/xerrors="v0.0.0-20220907171357-04be3eba64a2"
+google.golang.org/api="v0.151.0"
+google.golang.org/genproto/googleapis/api="v0.0.0-20231016165738-49dd2c1f3d0b"
+google.golang.org/genproto/googleapis/rpc="v0.0.0-20231030173426-d783a09b4405"
+google.golang.org/genproto="v0.0.0-20231016165738-49dd2c1f3d0b"
+google.golang.org/grpc="v1.59.0"
+google.golang.org/protobuf="v1.31.0"
+gopkg.in/yaml.v2="v2.4.0"
+gopkg.in/yaml.v3="v3.0.1"
+howett.net/plist="v1.0.0"
+software.sslmate.com/src/go-pkcs12="v0.2.0"
+```
+</details>

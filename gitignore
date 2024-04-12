@@ -1,0 +1,14 @@
+
+
+//屏蔽运行产生文件
+.hugo_build.lock
+//屏蔽本文件
+.gitignore
+//
+**/.git
+**/.github
+**/.vercel
+**/public
+//构建文件
+hugo.exe
+.vercel
